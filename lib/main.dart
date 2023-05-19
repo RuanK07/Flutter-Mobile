@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(AppWidget(title: 'Flutterando 3'));
+  runApp(AppWidget(title: 'Flutter'));
 }
 
 class AppWidget extends StatelessWidget {
@@ -14,7 +14,7 @@ class AppWidget extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(primarySwatch: Colors.red),
       home: Container(
-        child: Center(child: Text('Flutterando')),
+        child: Center(child: Text('Flutter')),
       ),
     );
   }
