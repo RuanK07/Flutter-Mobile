@@ -54,9 +54,7 @@ class _LoginPageState extends State<LoginPage> {
                   child: Text('Entrar'),
                   onPressed: () {
                     if (email == 'admin' && password == 'admin') {
-                      Navigator.of(context).pushReplacement(
-                        MaterialPageRoute(builder: (context) => HomePage()),
-                      );
+                      Navigator.of(context).pushReplacementNamed('/home');
                     }
                   },
                 ),
