@@ -15,6 +15,31 @@ class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+          child: Column(
+        children: [
+          UserAccountsDrawerHeader(
+            currentAccountPicture: Image.network(
+                'https://i.pinimg.com/564x/7c/d3/c6/7cd3c616e68c346ae55fa1455dc6ea27.jpg'),
+            accountName: Text('ADMIN'),
+            accountEmail: Text('admin@gmail.com'),
+          ),
+          ListTile(
+            leading: Icon(Icons.home),
+            title: Text('Inicio'),
+            subtitle: Text('tela de inicio'),
+            onTap: () {},
+          ),
+          ListTile(
+            leading: Icon(Icons.home),
+            title: Text('Logout'),
+            subtitle: Text('Finalizar sessão'),
+            onTap: () {
+              Navigator.of(context).pushReplacementNamed('/');
+            },
+          )
+        ],
+      )),
       appBar: AppBar(
         title: Text('Home Page'),
         actions: [CustomSwitch()],
