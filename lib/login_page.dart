@@ -29,40 +29,54 @@ class _LoginPageState extends State<LoginPage> {
                       height: 200,
                       child: Image.asset('assets/images/Logo.png')),
                   Container(height: 20),
-                  TextField(
-                    onChanged: (text) {
-                      email = text;
-                    },
-                    keyboardType: TextInputType.emailAddress,
-                    decoration: InputDecoration(
-                      labelText: 'Username',
-                      border: OutlineInputBorder(),
+                  Card(
+                      child: Padding(
+                    padding: const EdgeInsets.only(
+                      left: 12.0,
+                      right: 12.0,
+                      top: 20.0,
+                      bottom: 12.0,
                     ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  TextField(
-                    onChanged: (text) {
-                      password = text;
-                    },
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      labelText: 'Password',
-                      border: OutlineInputBorder(),
+                    child: Column(
+                      children: [
+                        TextField(
+                          onChanged: (text) {
+                            email = text;
+                          },
+                          keyboardType: TextInputType.emailAddress,
+                          decoration: InputDecoration(
+                            labelText: 'Username',
+                            border: OutlineInputBorder(),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        TextField(
+                          onChanged: (text) {
+                            password = text;
+                          },
+                          obscureText: true,
+                          decoration: InputDecoration(
+                            labelText: 'Password',
+                            border: OutlineInputBorder(),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 15,
+                        ),
+                        ElevatedButton(
+                          child: Text('Entrar'),
+                          onPressed: () {
+                            if (email == 'admin' && password == 'admin') {
+                              Navigator.of(context)
+                                  .pushReplacementNamed('/home');
+                            }
+                          },
+                        ),
+                      ],
                     ),
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  ElevatedButton(
-                    child: Text('Entrar'),
-                    onPressed: () {
-                      if (email == 'admin' && password == 'admin') {
-                        Navigator.of(context).pushReplacementNamed('/home');
-                      }
-                    },
-                  ),
+                  )),
                 ],
               ),
             ),
@@ -75,19 +89,21 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Stack(
-      children: [
-        SizedBox(
-            height: MediaQuery.of(context).size.height,
-            child: Image.asset(
-              'assets/images/Background.jpg',
-              fit: BoxFit.cover,
-            )),
-        Container(
-          color: Colors.black.withOpacity(0.5),
-        ),
-        _body(),
-      ],
+        body: SingleChildScrollView(
+      child: Stack(
+        children: [
+          SizedBox(
+              height: MediaQuery.of(context).size.height,
+              child: Image.asset(
+                'assets/images/Background.jpg',
+                fit: BoxFit.cover,
+              )),
+          Container(
+            color: Colors.black.withOpacity(0.5),
+          ),
+          _body(),
+        ],
+      ),
     ));
   }
 }
